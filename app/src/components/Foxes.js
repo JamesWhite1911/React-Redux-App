@@ -5,6 +5,8 @@ import { connect } from 'react-redux';
 //actions
 import { getImage } from '../actions'
 
+import styled from 'styled-components';
+
 //main
 const Foxes = (props) => {
     const { image, isFetching, error } = props;
@@ -22,14 +24,16 @@ const Foxes = (props) => {
     }
 
     if (isFetching) {
-        return <h3>Fetching a fox :)</h3>;
+        return (
+                <h3>Fetching a fox :)</h3>
+        )
     }
 
     return (
-        <div>
+        <StyledDiv>
             <img src={image}></img>
             <button onClick={handleClick}>Get another fox!</button>
-        </div>
+        </StyledDiv>
     )
 }
 
@@ -44,3 +48,27 @@ const mapStateToProps = state => {
 
 //connect
 export default connect(mapStateToProps, { getImage })(Foxes);
+
+
+const StyledDiv = styled.div`
+  background-color: #ed960b;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  padding: 5%;
+  padding-top: 0;
+  img {
+      height: 600px;
+      width: 800px;
+      margin: 0 -2px;
+  }
+  button {
+      display: flex;
+      margin-top: 5%;
+      padding: 10px 50px;
+      letter-spacing: 1px;
+      color: white;
+      background-color: black;
+      border-style: none;
+  }
+`
