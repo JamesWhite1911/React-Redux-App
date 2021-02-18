@@ -25,12 +25,13 @@ const Foxes = (props) => {
 
     if (isFetching) {
         return (
-                <h3>Fetching a fox :)</h3>
+            <StyledFetch>Fetching a fox :)</StyledFetch>
         )
     }
 
     return (
         <StyledDiv>
+            <h1>Foxes!</h1>
             <img src={image}></img>
             <button onClick={handleClick}>Get another fox!</button>
         </StyledDiv>
@@ -55,7 +56,7 @@ const StyledDiv = styled.div`
   display: flex;
   flex-flow: column;
   align-items: center;
-  padding: 5%;
+  padding: 5% 0;
   padding-top: 0;
   img {
       height: 600px;
@@ -71,4 +72,14 @@ const StyledDiv = styled.div`
       background-color: black;
       border-style: none;
   }
+  h1 {
+  background-color: black;
+  margin: 0;
+  width: 100%;
+  padding: 20px 0;
+ }
+`
+
+const StyledFetch = styled.h3`
+padding: 0 20px;
 `
